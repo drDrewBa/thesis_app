@@ -2,21 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    font-family: 'Montserrat-Regular';
+  }
+}
+
+@layer utilities {
+  /* Montserrat font weight utilities */
+  .font-thin {
+    font-family: 'Montserrat-Thin';
+  }
+  .font-extralight {
+    font-family: 'Montserrat-ExtraLight';
+  }
+  .font-light {
+    font-family: 'Montserrat-Light';
+  }
+  .font-normal {
+    font-family: 'Montserrat-Regular';
+  }
+  .font-medium {
+    font-family: 'Montserrat-Medium';
+  }
+  .font-semibold {
+    font-family: 'Montserrat-SemiBold';
+  }
+  .font-bold {
+    font-family: 'Montserrat-Bold';
+  }
+  .font-extrabold {
+    font-family: 'Montserrat-ExtraBold';
+  }
+  .font-black {
+    font-family: 'Montserrat-Black';
+  }
+
+  /* Montserrat italic utilities */
+  .italic {
+    font-family: 'Montserrat-Italic';
+  }
+  .font-thin.italic {
+    font-family: 'Montserrat-ThinItalic';
+  }
+  .font-extralight.italic {
+    font-family: 'Montserrat-ExtraLightItalic';
+  }
+  .font-light.italic {
+    font-family: 'Montserrat-LightItalic';
+  }
+  .font-normal.italic {
+    font-family: 'Montserrat-Italic';
+  }
+  .font-medium.italic {
+    font-family: 'Montserrat-MediumItalic';
+  }
+  .font-semibold.italic {
+    font-family: 'Montserrat-SemiBoldItalic';
+  }
+  .font-bold.italic {
+    font-family: 'Montserrat-BoldItalic';
+  }
+  .font-extrabold.italic {
+    font-family: 'Montserrat-ExtraBoldItalic';
+  }
+  .font-black.italic {
+    font-family: 'Montserrat-BlackItalic';
+  }
+}
+
 @layer components {
   .button {
     @apply w-10/12 bg-primary-300 p-5 rounded-3xl items-center justify-center;
   }
 
   .button-text {
-    @apply text-white text-lg font-semibold text-center
+    @apply text-white font-semibold text-center tracking-tight
   }
 
   .carousel-title {
-    @apply text-center text-2xl font-semibold text-primary-300
+    @apply text-center text-xl font-semibold text-primary-300
   }
 
   .carousel-desc {
-    @apply text-center text-lg text-slate-400/70 w-72
+    @apply text-center leading-7 text-slate-400/70 w-72 font-montserrat font-medium
   }
 
   .carousel-img {
