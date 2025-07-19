@@ -14,7 +14,7 @@ export default [
     {
         id: '2',
         title: 'A little note of care',
-        description: 'This tool offers support, but it\'s not a replacement for professional medical advice',
+        description: 'This tool offers support, but it is not a replacement for professional medical advice',
         image: require('@/assets/images/consult.png'),
     },
 ]
