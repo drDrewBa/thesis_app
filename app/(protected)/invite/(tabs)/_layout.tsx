@@ -9,23 +9,23 @@ export default function TabLayout() {
       headerShown: false,
       tabBarShowLabel: false,
       tabBarStyle: {
-        backgroundColor: "#6BB2FA",
+        backgroundColor: "#CEE5FD",
         borderRadius: 100,
-        marginHorizontal: 40,
+        marginHorizontal: 56,
         marginBottom: 64,
         position: "absolute",
-        height: 64,
+        height: 56,
         elevation: 0,
-        paddingTop: 12,
+        paddingTop: 8,
         paddingHorizontal: 4,
       },
     }}>
       <Tabs.Screen
-        name="support"
+        name="generate"
         options={{
-          title: "Support",
+          title: "Generate",
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon name="heart" color={color} focused={focused} title="Support" variant="icon" />
+            <TabIcon name="heart" color={color} focused={focused} title="My QR" variant="text" />
           ),
           tabBarButton: (props) => (
             <PlatformPressable
@@ -36,26 +36,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="record"
+        name="scan"
         options={{
-          title: "Record",
+          title: "Scan",
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon name="microphone" color={color} focused={focused} title="Record" variant="icon" />
-          ),
-          tabBarButton: (props) => (
-            <PlatformPressable
-              {...props}
-              android_ripple={{ color: 'transparent' }}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          tabBarIcon: ({ color, focused }) => (
-            <TabIcon name="user" color={color} focused={focused} title="Profile" variant="icon" />
+            <TabIcon name="microphone" color={color} focused={focused} title="Scan QR" variant="text" />
           ),
           tabBarButton: (props) => (
             <PlatformPressable

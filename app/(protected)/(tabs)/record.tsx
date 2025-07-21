@@ -1,17 +1,18 @@
+import { useBottomSheet } from "@/context/BottomSheetContext";
 import { Audio } from 'expo-av';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Alert, Text, View } from "react-native";
 import RecordingButton from "../../../components/RecordingButton";
-import { 
-  requestAudioPermissions, 
-  setupAudioMode, 
-  createRecording, 
-  stopAndUnloadRecording, 
-  calculateAudioLevel 
+import {
+  calculateAudioLevel,
+  createRecording,
+  requestAudioPermissions,
+  setupAudioMode,
+  stopAndUnloadRecording
 } from "../../../lib/actions";
 
 // Custom hook for recording functionality
-const useAudioRecorder = () => {
+const useAudioRecorder = (onRecordingStopped?: () => void) => {
   const [isListening, setIsListening] = useState(false);
   const [hasPermission, setHasPermission] = useState(false);
   const [recording, setRecording] = useState<Audio.Recording | null>(null);
@@ -59,6 +60,8 @@ const useAudioRecorder = () => {
       await stopAndUnloadRecording(recording);
       setRecording(null);
       setAudioLevel(0);
+      // Call the callback when recording stops
+      onRecordingStopped?.();
     } catch (err) {
       console.error('Failed to stop recording', err);
     }
@@ -89,7 +92,13 @@ const useAudioRecorder = () => {
 
 // Main component
 export default function Tab() {
-  const { isListening, hasPermission, audioLevel, toggleRecording } = useAudioRecorder();
+  const { showBottomSheetWithContent } = useBottomSheet();
+
+  const handleRecordingStopped = () => {
+    showBottomSheetWithContent(null); // Use default content
+  };
+
+  const { isListening, hasPermission, audioLevel, toggleRecording } = useAudioRecorder(handleRecordingStopped);
 
   const getStatusText = () => {
     if (!hasPermission) return "Microphone permission is required";

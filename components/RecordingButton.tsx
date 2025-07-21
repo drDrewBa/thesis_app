@@ -53,7 +53,7 @@ export default function RecordingButton({
           height: strokeSize,
           borderRadius: strokeSize,
           borderWidth: strokeWidth,
-          borderColor: '#3b82f6',
+          borderColor: '#6BB2FA',
           opacity: strokeOpacity,
           alignSelf: 'center',
         }}

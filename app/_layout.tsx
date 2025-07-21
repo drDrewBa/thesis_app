@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "./globals.css";
 
 // Keep the splash screen visible while we fetch resources
@@ -42,13 +43,15 @@ export default function RootLayout() {
   }
 
   return (
-    <AuthProvider>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="(protected)" />
-        <Stack.Screen name="sign-in" />
-        <Stack.Screen name="sign-up" />
-      </Stack>
-    </AuthProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <AuthProvider>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="index" />
+          <Stack.Screen name="(protected)" />
+          <Stack.Screen name="sign-in" />
+          <Stack.Screen name="sign-up" />
+        </Stack>
+      </AuthProvider>
+    </GestureHandlerRootView>
   );
 }
