@@ -10,6 +10,7 @@ export default function TabLayout() {
           headerTitle: "Invite",
           headerTitleStyle: styles.headerTitle,
           headerShadowVisible: false,
+          headerTitleAlign: "center",
         }}
       />
     </Stack>
